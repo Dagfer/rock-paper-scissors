@@ -11,7 +11,7 @@
             min = Math.ceil(1);
             max = Math.floor(3);
             return Math.floor(Math.random() * (max - min + 1) + min);
-          }
+          }// This function expression randomly generates an integer between 1 and 3, inclusive
           
           function getComputerChoice(computerChoice){           
           if (randomIntInclusive() === 1){
@@ -25,7 +25,8 @@
           return computerChoice
         }
         
-        // getComputerChoice(computerChoice)
+        // getComputerChoice(computerChoice) takes the value of randomIntInclusive and uses it to determine
+        //whether its value will be Rock, Paper, or Scissors
       </script>
     </body>
 </html>
