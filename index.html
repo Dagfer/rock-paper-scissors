@@ -7,17 +7,25 @@
     <body>
       <script>
 
-          let RandomIntInclusive = function(min, max) {
+          let randomIntInclusive = function(min, max) {
             min = Math.ceil(1);
             max = Math.floor(3);
             return Math.floor(Math.random() * (max - min + 1) + min);
           }
-        //   function getComputerChoice(){
-        //     if (RandomIntInclusive == 1){
-        //       ComputerChoice = "Rock"
-        //     }
-        //   }
+          
+          function getComputerChoice(computerChoice){           
+          if (randomIntInclusive() === 1){
+            computerChoice = "Rock";
+            }
+          else if (randomIntInclusive() === 2){
+            computerChoice = "Paper";
+          } else {
+            computerChoice = "Scissors";
+          }
+          return computerChoice
+        }
         
+        // getComputerChoice(computerChoice)
       </script>
     </body>
 </html>
