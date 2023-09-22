@@ -7,14 +7,14 @@
     <body>
       <script>
 
-          let randomIntInclusive = function(min, max) {
+         
+          function getComputerChoice(computerChoice){         
+            let randomIntInclusive = function(min, max) {
             min = Math.ceil(1);
             max = Math.floor(3);
             return Math.floor(Math.random() * (max - min + 1) + min);
           }// This function expression randomly generates an integer between 1 and 3, inclusive
-          
-          function getComputerChoice(computerChoice){           
-          if (randomIntInclusive() === 1){
+            if (randomIntInclusive() === 1){
             computerChoice = "Rock";
             }
           else if (randomIntInclusive() === 2){
