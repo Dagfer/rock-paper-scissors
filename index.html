@@ -28,36 +28,43 @@
 
         function playRound(playerSelection, computerSelection) {
           if (playerSelection.toLowerCase() === computerSelection){
-            alert("it's a draw!");
+            return "it's a draw!";
           }
           else if (playerSelection.toLowerCase() === "scissors" && computerSelection === "paper"){
-            alert("You win! Cut me to ribbons...");
+            return "You win! Cut me to ribbons...";
           }
           else if (playerSelection.toLowerCase() === "paper" && computerSelection === "rock"){
-            alert("You win! Gobbled me up...");
+            return "You win! Gobbled me up...";
           }
           else if (playerSelection.toLowerCase() === "rock" && computerSelection === "scissors"){
-            alert("You win! Smashed me to bits...");
+            return "You win! Smashed me to bits...";
           }
           else if (playerSelection.toLowerCase() === "rock" && computerSelection === "paper"){
-            alert("You lose! Paper beats rock.");
+            return "You lose! Paper beats rock.";
           }
           else if (playerSelection.toLowerCase() === "scissors" && computerSelection === "rock"){
-            alert("You lose! Rock beats scissors.");
+            return "You lose! Rock beats scissors.";
           }
           else if (playerSelection.toLowerCase() === "paper" && computerSelection === "scissors"){
-            alert("You lose! Scissors beat papers.");
+            return "You lose! Scissors beat papers.";
           }
           else{
-            alert("That ain't rock, paper, scissors.");
+            return "That ain't rock, paper, scissors.";
           }
-           return playerSelection
-           return computerSelection
+          //  return playerSelection
+          //  return computerSelection
         }
         let playerSelection = prompt("Choose your fighter: Rock, Paper or Scissors?");
+        console.log(playerSelection);
         let computerSelection = getComputerChoice();
-        console.log (computerSelection)
-        playRound(playerSelection, computerSelection)
+        console.log (computerSelection);
+
+        function game(){
+          playRound(playerSelection, computerSelection);
+          let result = playRound(playerSelection, computerSelection);
+          return result;          
+        }
+        console.log(game());
 
          //conditional block using logical operator, && I think, to determine match outcome. 
            
