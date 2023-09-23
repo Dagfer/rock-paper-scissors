@@ -6,10 +6,6 @@
     </head>
     <body>
       <script>
-
-         let playerSelection = prompt("Choose your fighter: Rock, Paper or Scissors?")
-         //conditional block using logical operator, && I think, to determine match outcome. 
-         //
           function getComputerChoice(computerChoice){         
             let randomIntInclusive = function(min, max) {
             min = Math.ceil(1);
@@ -17,16 +13,23 @@
             return Math.floor(Math.random() * (max - min + 1) + min);
           }// This function expression randomly generates an integer between 1 and 3, inclusive
             if (randomIntInclusive() === 1){
-            computerChoice = "Rock";
+            computerChoice = "rock";
             }
           else if (randomIntInclusive() === 2){
-            computerChoice = "Paper";
+            computerChoice = "paper";
           } else {
-            computerChoice = "Scissors";
+            computerChoice = "scissors";
           }
           return computerChoice
+          
         }
-        
+        console.log(getComputerChoice())
+        let playerSelection = prompt("Choose your fighter: Rock, Paper or Scissors?")
+          let selection = playerSelection.toLowerCase()
+          console.log(selection)
+
+         //conditional block using logical operator, && I think, to determine match outcome. 
+           
         // getComputerChoice(computerChoice) uses the value of randomIntInclusive to determine
         //whether computerChoices value will be Rock, Paper, or Scissors
       </script>
