@@ -23,29 +23,37 @@
           return computerChoice
           
         }
-        // console.log(getComputerChoice())
-        
+        let computerSelection = getComputerChoice();
+        console.log (computerSelection);
+
+        function playerPrompt(selection){
+          selection = prompt("Choose your fighter: Rock, Paper or Scissors?").toLowerCase();
+          return selection;
+        }
+        let playerSelection = playerPrompt();
+        console.log(playerSelection)
 
         function playRound(playerSelection, computerSelection) {
-          if (playerSelection.toLowerCase() === computerSelection){
+         
+          if (playerSelection === computerSelection){
             return "it's a draw!";
           }
-          else if (playerSelection.toLowerCase() === "scissors" && computerSelection === "paper"){
+          else if (playerSelection === "scissors" && computerSelection === "paper"){
             return "You win! Cut me to ribbons...";
           }
-          else if (playerSelection.toLowerCase() === "paper" && computerSelection === "rock"){
+          else if (playerSelection === "paper" && computerSelection === "rock"){
             return "You win! Gobbled me up...";
           }
-          else if (playerSelection.toLowerCase() === "rock" && computerSelection === "scissors"){
+          else if (playerSelection === "rock" && computerSelection === "scissors"){
             return "You win! Smashed me to bits...";
           }
-          else if (playerSelection.toLowerCase() === "rock" && computerSelection === "paper"){
+          else if (playerSelection === "rock" && computerSelection === "paper"){
             return "You lose! Paper beats rock.";
           }
-          else if (playerSelection.toLowerCase() === "scissors" && computerSelection === "rock"){
+          else if (playerSelection === "scissors" && computerSelection === "rock"){
             return "You lose! Rock beats scissors.";
           }
-          else if (playerSelection.toLowerCase() === "paper" && computerSelection === "scissors"){
+          else if (playerSelection === "paper" && computerSelection === "scissors"){
             return "You lose! Scissors beat papers.";
           }
           else{
@@ -54,17 +62,17 @@
           //  return playerSelection
           //  return computerSelection
         }
-        let playerSelection = prompt("Choose your fighter: Rock, Paper or Scissors?");
-        console.log(playerSelection);
-        let computerSelection = getComputerChoice();
-        console.log (computerSelection);
-
         function game(){
           playRound(playerSelection, computerSelection);
-          let result = playRound(playerSelection, computerSelection);
-          return result;          
+          playRound(playerSelection, computerSelection);
+          playRound(playerSelection, computerSelection);
+          playRound(playerSelection, computerSelection);
+          playRound(playerSelection, computerSelection);
         }
         console.log(game());
+        // playerPrompt(playerSelection);
+        // console.log(playerSelection)
+        //look into using functions to update a variable via prompt
 
          //conditional block using logical operator, && I think, to determine match outcome. 
            
