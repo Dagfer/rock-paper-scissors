@@ -31,21 +31,24 @@
           console.log(playerSelection);
           return playerSelection;
         }
-
-        function updateComputerChoice(computerSelection){
-          if (computerSelection === "rock" || "paper" || "scissors") {
-          const computerSelection = getComputerChoice();
-          // console.log (computerSelection);
-          return computerSelection;
-          }
-        }
-        function updatePrompt(playerSelection){
-          if (playerSelection === "rock" || "paper" || "scissors"){
-          playerSelection = playerPrompt();
-          // console.log(playerSelection);
-          return playerSelection;
-          }
-        }
+        //The following two functions were attempts to follow TOP instructions to call playRound 5 times
+        //within game(). However, playerSelection and computerSelection would not update, instead playing the 1st round
+        //over and over. These two functions were meant to solve that but it didn't work.
+        
+        // function updateComputerChoice(computerSelection){
+        //   if (computerSelection === "rock" || "paper" || "scissors") {
+        //   const computerSelection = getComputerChoice();
+        //   // console.log (computerSelection);
+        //   return computerSelection;
+        //   }
+        // }
+        // function updatePrompt(playerSelection){
+        //   if (playerSelection === "rock" || "paper" || "scissors"){
+        //   playerSelection = playerPrompt();
+        //   // console.log(playerSelection);
+        //   return playerSelection;
+        //   }
+        // }
 
         function playRound(playerSelection, computerSelection) {
          
@@ -84,10 +87,10 @@
         }
         let playerScore = 0;
         let computerScore = 0;
-        
+
         function keepScore(){
           if (result === "Draw"){
-            
+            //increment both sides
           }
           else if (result === "Computer Wins!"){
 
