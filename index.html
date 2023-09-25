@@ -22,13 +22,13 @@
           } else {
             computerChoice = "scissors";
           }
-          console.log(computerChoice);
+          // console.log(computerChoice);
           return computerChoice;
           
         }
         function playerPrompt(playerSelection){
           playerSelection = prompt("Choose your fighter: Rock, Paper or Scissors?", "").toLowerCase();
-          console.log(playerSelection);
+          console.log("You chose" + " " + playerSelection);
           return playerSelection;
         }
         //The following two functions were attempts to follow TOP instructions to call playRound 5 times
@@ -123,7 +123,7 @@
           const computerSelection = getComputerChoice(); 
           const playerSelection = playerPrompt();
           const round = playRound(playerSelection, computerSelection);
-          console.log(round);
+          // console.log(round);
           const result = keepScore(round);
           console.log(result)
           
