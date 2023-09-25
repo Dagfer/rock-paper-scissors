@@ -34,7 +34,7 @@
         //The following two functions were attempts to follow TOP instructions to call playRound 5 times
         //within game(). However, playerSelection and computerSelection would not update, instead playing the 1st round
         //over and over. These two functions were meant to solve that but it didn't work.
-        
+
         // function updateComputerChoice(computerSelection){
         //   if (computerSelection === "rock" || "paper" || "scissors") {
         //   const computerSelection = getComputerChoice();
@@ -88,31 +88,58 @@
         let playerScore = 0;
         let computerScore = 0;
 
-        function keepScore(){
-          if (result === "Draw"){
-            //increment both sides
+        function keepScore(round){
+          if (round === "Draw"){
+            playerScore == computerScore;
+            return "Player: " + playerScore + " " + "-" + " " + "Computer: " + computerScore;
           }
-          else if (result === "Computer Wins!"){
-
+          else if (round === "Computer Wins!"){
+            computerScore === ++computerScore;
+            return "Player: " + playerScore + " " + "-" + " " + "Computer: " + computerScore;
           }
-          else if (result === "Player Wins!"){
+          else if (round === "Player Wins!"){
+            playerScore === ++playerScore;
+            return "Player: " + playerScore + " " + "-" + " " + "Computer: " + computerScore;
           }
           else {
-            console.log ("Can't count that.")
+            console.log ("Does not compute.");
+          }
+
+          
+          // return result;
+        }
+        function declareWinner(){
+          if (playerScore > computerScore){
+            console.log ("Player Victory!");
+          }
+          else if (playerScore < computerScore){
+            console.log("Computer Victory!");
+          }
+          else if (playerScore === computerScore) {
+            console.log("It's a tie!?")            
           }
         }
         function game(){
           const computerSelection = getComputerChoice(); 
           const playerSelection = playerPrompt();
-          let result = playRound(playerSelection, computerSelection);
-          console.log(result);
-          return result;
+          const round = playRound(playerSelection, computerSelection);
+          console.log(round);
+          const result = keepScore(round);
+          console.log(result)
+          
         }
+
+        // function gameAndTally(finalResult){
+        //   const gameRound = game()
+        //   const tally = keepScore()
+        //   return finalResult
+        // }
       game()
       game()
       game()
       game()
       game()
+      declareWinner()
         // playerPrompt(playerSelection);
         // console.log(playerSelection)
         //look into using functions to update a variable via prompt
