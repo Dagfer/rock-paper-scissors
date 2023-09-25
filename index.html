@@ -6,6 +6,8 @@
     </head>
     <body>
       <script>
+        
+
           function getComputerChoice(computerChoice){         
             let randomIntInclusive = function(min, max) {
             min = Math.ceil(1);
@@ -20,56 +22,94 @@
           } else {
             computerChoice = "scissors";
           }
-          return computerChoice
+          console.log(computerChoice);
+          return computerChoice;
           
         }
-        let computerSelection = getComputerChoice();
-        console.log (computerSelection);
-
-        function playerPrompt(selection){
-          selection = prompt("Choose your fighter: Rock, Paper or Scissors?").toLowerCase();
-          return selection;
+        function playerPrompt(playerSelection){
+          playerSelection = prompt("Choose your fighter: Rock, Paper or Scissors?", "").toLowerCase();
+          console.log(playerSelection);
+          return playerSelection;
         }
-        let playerSelection = playerPrompt();
-        console.log(playerSelection)
+
+        function updateComputerChoice(computerSelection){
+          if (computerSelection === "rock" || "paper" || "scissors") {
+          const computerSelection = getComputerChoice();
+          // console.log (computerSelection);
+          return computerSelection;
+          }
+        }
+        function updatePrompt(playerSelection){
+          if (playerSelection === "rock" || "paper" || "scissors"){
+          playerSelection = playerPrompt();
+          // console.log(playerSelection);
+          return playerSelection;
+          }
+        }
 
         function playRound(playerSelection, computerSelection) {
          
           if (playerSelection === computerSelection){
-            return "it's a draw!";
+            console.log ("it's a draw!");
+            return "Draw";
           }
           else if (playerSelection === "scissors" && computerSelection === "paper"){
-            return "You win! Cut me to ribbons...";
+            console.log("You win! Cut me to ribbons...");
+            return "Player Wins!";
           }
           else if (playerSelection === "paper" && computerSelection === "rock"){
-            return "You win! Gobbled me up...";
+            console.log ("You win! Gobbled me up...");
+            return "Player Wins!";
           }
           else if (playerSelection === "rock" && computerSelection === "scissors"){
-            return "You win! Smashed me to bits...";
+            console.log ("You win! Smashed me to bits...");
+            return "Player Wins!";
           }
           else if (playerSelection === "rock" && computerSelection === "paper"){
-            return "You lose! Paper beats rock.";
+            console.log ("You lose! Paper beats rock.");
+            return "Computer Wins!";
           }
           else if (playerSelection === "scissors" && computerSelection === "rock"){
-            return "You lose! Rock beats scissors.";
+            console.log ("You lose! Rock beats scissors.");
+            return "Computer Wins!";
           }
           else if (playerSelection === "paper" && computerSelection === "scissors"){
-            return "You lose! Scissors beat papers.";
+            console.log ("You lose! Scissors beat papers.");
+            return "Computer Wins!";
           }
           else{
-            return "That ain't rock, paper, scissors.";
+            return "That ain't neither rock, paper nor scissors.";
           }
-          //  return playerSelection
-          //  return computerSelection
+          
+        }
+        let playerScore = 0;
+        let computerScore = 0;
+        
+        function keepScore(){
+          if (result === "Draw"){
+            
+          }
+          else if (result === "Computer Wins!"){
+
+          }
+          else if (result === "Player Wins!"){
+          }
+          else {
+            console.log ("Can't count that.")
+          }
         }
         function game(){
-          playRound(playerSelection, computerSelection);
-          playRound(playerSelection, computerSelection);
-          playRound(playerSelection, computerSelection);
-          playRound(playerSelection, computerSelection);
-          playRound(playerSelection, computerSelection);
+          const computerSelection = getComputerChoice(); 
+          const playerSelection = playerPrompt();
+          let result = playRound(playerSelection, computerSelection);
+          console.log(result);
+          return result;
         }
-        console.log(game());
+      game()
+      game()
+      game()
+      game()
+      game()
         // playerPrompt(playerSelection);
         // console.log(playerSelection)
         //look into using functions to update a variable via prompt
