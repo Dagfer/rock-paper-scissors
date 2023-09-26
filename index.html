@@ -6,14 +6,12 @@
     </head>
     <body>
       <script>
-        
-
           function getComputerChoice(computerChoice){         
             let randomIntInclusive = function(min, max) {
             min = Math.ceil(1);
             max = Math.floor(3);
             return Math.floor(Math.random() * (max - min + 1) + min);
-          }// This function expression randomly generates an integer between 1 and 3, inclusive
+          }
             if (randomIntInclusive() === 1){
             computerChoice = "rock";
             }
@@ -22,7 +20,7 @@
           } else {
             computerChoice = "scissors";
           }
-          // console.log(computerChoice);
+       
           return computerChoice;
           
         }
@@ -31,26 +29,8 @@
           console.log("You chose" + " " + playerSelection);
           return playerSelection;
         }
-        //The following two functions were attempts to follow TOP instructions to call playRound 5 times
-        //within game(). However, playerSelection and computerSelection would not update, instead playing the 1st round
-        //over and over. These two functions were meant to solve that but it didn't work.
 
-        // function updateComputerChoice(computerSelection){
-        //   if (computerSelection === "rock" || "paper" || "scissors") {
-        //   const computerSelection = getComputerChoice();
-        //   // console.log (computerSelection);
-        //   return computerSelection;
-        //   }
-        // }
-        // function updatePrompt(playerSelection){
-        //   if (playerSelection === "rock" || "paper" || "scissors"){
-        //   playerSelection = playerPrompt();
-        //   // console.log(playerSelection);
-        //   return playerSelection;
-        //   }
-        // }
-
-        function playRound(playerSelection, computerSelection) {
+       function playRound(playerSelection, computerSelection) {
          
           if (playerSelection === computerSelection){
             console.log ("it's a draw!");
@@ -103,10 +83,7 @@
           }
           else {
             console.log ("Does not compute.");
-          }
-
-          
-          // return result;
+          }          
         }
         function declareWinner(){
           if (playerScore > computerScore){
@@ -123,31 +100,16 @@
           const computerSelection = getComputerChoice(); 
           const playerSelection = playerPrompt();
           const round = playRound(playerSelection, computerSelection);
-          // console.log(round);
           const result = keepScore(round);
           console.log(result)
           
-        }
-
-        // function gameAndTally(finalResult){
-        //   const gameRound = game()
-        //   const tally = keepScore()
-        //   return finalResult
-        // }
+        } 
       game()
       game()
       game()
       game()
       game()
       declareWinner()
-        // playerPrompt(playerSelection);
-        // console.log(playerSelection)
-        //look into using functions to update a variable via prompt
-
-         //conditional block using logical operator, && I think, to determine match outcome. 
-           
-        // getComputerChoice(computerChoice) uses the value of randomIntInclusive to determine
-        //whether computerChoices value will be Rock, Paper, or Scissors
-      </script>
+        </script>
     </body>
 </html>
