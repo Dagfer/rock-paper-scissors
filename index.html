@@ -8,8 +8,11 @@
     <body>
       <div id = 'container'>
         <div id ="scoreboard">
-        
+                 
         </div>
+        <div id ='score'>
+
+        </div> 
         <div id ='buttondiv'>
          <button id="rock">I choose rock!</button>
          <button id="paper">I choose paper!</button>
@@ -54,28 +57,31 @@
             return "Player Wins!";
           }
           else if (playerSelection === "paper" && computerSelection === "rock"){
+            document.querySelector('#scoreboard').textContent = "You win! Gobbled me up..."
             console.log ("You win! Gobbled me up...");
             return "Player Wins!";
           }
           else if (playerSelection === "rock" && computerSelection === "scissors"){
+            document.querySelector('#scoreboard').textContent ="You win! Smashed me to bits..."
             console.log ("You win! Smashed me to bits...");
             return "Player Wins!";
           }
           else if (playerSelection === "rock" && computerSelection === "paper"){
+            document.querySelector('#scoreboard').textContent ="You lose! Paper beats rock."
             console.log ("You lose! Paper beats rock.");
             return "Computer Wins!";
           }
           else if (playerSelection === "scissors" && computerSelection === "rock"){
+            document.querySelector('#scoreboard').textContent ="You lose! Rock beats scissors."
             console.log ("You lose! Rock beats scissors.");
             return "Computer Wins!";
           }
           else if (playerSelection === "paper" && computerSelection === "scissors"){
+            document.querySelector('#scoreboard').textContent = "You lose! Scissors beat papers."
             console.log ("You lose! Scissors beat papers.");
             return "Computer Wins!";
           }
-          else{
-            return "That ain't neither rock, paper nor scissors.";
-          }
+          
           
         }
         let playerScore = 0;
@@ -84,14 +90,17 @@
         function keepScore(round){
           if (round === "Draw"){
             playerScore == computerScore;
+            document.querySelector('#score').textContent = "Player: " + playerScore + " " + "-" + " " + "Computer: " + computerScore;
             return "Player: " + playerScore + " " + "-" + " " + "Computer: " + computerScore;
           }
           else if (round === "Computer Wins!"){
             computerScore === ++computerScore;
+            document.querySelector('#score').textContent = "Player: " + playerScore + " " + "-" + " " + "Computer: " + computerScore;
             return "Player: " + playerScore + " " + "-" + " " + "Computer: " + computerScore;
           }
           else if (round === "Player Wins!"){
             playerScore === ++playerScore;
+            document.querySelector('#score').textContent = "Player: " + playerScore + " " + "-" + " " + "Computer: " + computerScore;
             return "Player: " + playerScore + " " + "-" + " " + "Computer: " + computerScore;
           }
           else {
@@ -122,19 +131,32 @@
       const rockButton = document.querySelector('#rock');
       const paperButton = document.querySelector('#paper');
       const scissorButton = document.querySelector('#scissors');
-      
+
       rockButton.addEventListener('click', () =>{
         const computerSelection = getComputerChoice();
         getComputerChoice(); 
-        playRound('rock', computerSelection)});
+        let round = playRound('rock', computerSelection);
+        playRound('rock', computerSelection);
+        keepScore(round);
+      });
       paperButton.addEventListener('click', () => {
         const computerSelection = getComputerChoice();
         getComputerChoice(); 
-        playRound('paper', computerSelection)});
+        let round = playRound('paper', computerSelection);
+        playRound('paper', computerSelection);
+        keepScore(round);
+});
+
       scissorButton.addEventListener('click', () =>  {
         const computerSelection = getComputerChoice();
         getComputerChoice(); 
-        playRound('scissors', computerSelection)});
+        let round = playRound('scissors', computerSelection);
+        playRound('scissors', computerSelection);
+        keepScore(round);
+});
+        
+
+        
 //try using e.target to link buttons with scoreboard manipulations?
       declareWinner()
         </script>
