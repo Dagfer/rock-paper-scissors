@@ -2,41 +2,54 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="styles.css">
         <title>Rock, Paper, Scissors</title>
     </head>
     <body>
-      <script>
-          function getComputerChoice(computerChoice){         
+      <div id = 'container'>
+        <div id ="scoreboard">
+        
+        </div>
+        <div id ='buttondiv'>
+         <button id="rock">I choose rock!</button>
+         <button id="paper">I choose paper!</button>
+         <button id="scissors">Scissors! I choose you!</button>
+        </div>
+      </div>
+        <script>
+          function getComputerChoice(computerSelection){         
             let randomIntInclusive = function(min, max) {
             min = Math.ceil(1);
             max = Math.floor(3);
             return Math.floor(Math.random() * (max - min + 1) + min);
           }
             if (randomIntInclusive() === 1){
-            computerChoice = "rock";
+              computerSelection = "rock";
             }
           else if (randomIntInclusive() === 2){
-            computerChoice = "paper";
+            computerSelection = "paper";
           } else {
-            computerChoice = "scissors";
+            computerSelection = "scissors";
           }
        
-          return computerChoice;
+          return computerSelection;
           
         }
-        function playerPrompt(playerSelection){
-          playerSelection = prompt("Choose your fighter: Rock, Paper or Scissors?", "").toLowerCase();
-          console.log("You chose" + " " + playerSelection);
-          return playerSelection;
-        }
+        // function playerPrompt(playerSelection){
+        //   playerSelection = prompt("Choose your fighter: Rock, Paper or Scissors?", "").toLowerCase();
+        //   console.log("You chose" + " " + playerSelection);
+        //   return playerSelection;
+        // }
 
        function playRound(playerSelection, computerSelection) {
          
           if (playerSelection === computerSelection){
+            document.querySelector('#scoreboard').textContent = "it's a draw!";
             console.log ("it's a draw!");
             return "Draw";
           }
           else if (playerSelection === "scissors" && computerSelection === "paper"){
+            document.querySelector('#scoreboard').textContent = "You win! Cut me to ribbons...";
             console.log("You win! Cut me to ribbons...");
             return "Player Wins!";
           }
@@ -96,19 +109,33 @@
             console.log("It's a tie!?")            
           }
         }
+        // let computerSelection = getComputerChoice();
+
         function game(){
-          const computerSelection = getComputerChoice(); 
+          const computerSelection = getComputerChoice();
           const playerSelection = playerPrompt();
           const round = playRound(playerSelection, computerSelection);
           const result = keepScore(round);
           console.log(result)
           
         } 
-      game()
-      game()
-      game()
-      game()
-      game()
+      const rockButton = document.querySelector('#rock');
+      const paperButton = document.querySelector('#paper');
+      const scissorButton = document.querySelector('#scissors');
+      
+      rockButton.addEventListener('click', () =>{
+        const computerSelection = getComputerChoice();
+        getComputerChoice(); 
+        playRound('rock', computerSelection)});
+      paperButton.addEventListener('click', () => {
+        const computerSelection = getComputerChoice();
+        getComputerChoice(); 
+        playRound('paper', computerSelection)});
+      scissorButton.addEventListener('click', () =>  {
+        const computerSelection = getComputerChoice();
+        getComputerChoice(); 
+        playRound('scissors', computerSelection)});
+//try using e.target to link buttons with scoreboard manipulations?
       declareWinner()
         </script>
     </body>
